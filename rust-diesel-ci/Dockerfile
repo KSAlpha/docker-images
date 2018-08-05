@@ -22,3 +22,9 @@ RUN DOCKERIZE_URL="https://github.com/jwilder/dockerize/releases/download/v0.6.1
   && tar -C /usr/local/bin -xzvf /tmp/dockerize-linux-amd64.tar.gz \
   && rm -rf /tmp/dockerize-linux-amd64.tar.gz \
   && dockerize --version
+
+# Install nightly toolchain 2018-07-07
+RUN rustup install nightly-2018-07-07
+
+# Install diesel-cli, cargo-install-update
+RUN cargo install cargo-update && cargo install diesel_cli --no-default-features --features=postgres
